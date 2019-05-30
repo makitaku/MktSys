@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MktSys", "MktSys\MktSys.csproj", "{ECFC419F-BA22-4E76-8519-E8F8D8AA54BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECFC419F-BA22-4E76-8519-E8F8D8AA54BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFC419F-BA22-4E76-8519-E8F8D8AA54BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFC419F-BA22-4E76-8519-E8F8D8AA54BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFC419F-BA22-4E76-8519-E8F8D8AA54BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A62D153-37E6-40F7-9BC3-FA4A2EC6BC1F}
+	EndGlobalSection
+EndGlobal
