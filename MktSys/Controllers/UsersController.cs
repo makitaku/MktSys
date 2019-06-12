@@ -65,6 +65,39 @@ namespace MktSys.Controllers
             return View(user);
         }
 
+        // GET: Users/CreateList
+        public IActionResult CreateList()
+        {
+            //var users = new List<User>();
+
+            //return View(users);
+
+            return View();
+        }
+
+        // POST: Users/CreateList
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateList(List<User> list)
+        {
+            try
+            {
+
+                foreach (var item in list)
+                {
+                    _context.Add(item);
+                }
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

@@ -1,0 +1,60 @@
+﻿@model List<User>
+
+@{
+    ViewData["Title"] = "CreateList";
+}
+
+<h1>Create</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="CreateList">
+            <table class="table">
+                <tr>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model[0].No)
+                    </th>
+                    <th class="col-md-4">
+                        @Html.DisplayNameFor(model => model[0].Name)
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model[0].Password)
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model[0].Birth)
+                    </th>
+                </tr>
+                @for(var i = 0; i < 3; i++)
+                {
+                <tr>
+                    <td>
+                        <input asp-for="@Model[i].No" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="@Model[i].Name" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="@Model[i].Password" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="@Model[i].Birth" class="form-control" />
+                    </td>
+                </tr>
+                }
+            </table>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

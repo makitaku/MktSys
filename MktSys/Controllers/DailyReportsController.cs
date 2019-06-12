@@ -46,7 +46,12 @@ namespace MktSys.Controllers
         // GET: DailyReports/Create
         public IActionResult Create()
         {
-            return View();
+            //return View();
+
+            var model = new DailyReport();
+
+            return View(model);
+
         }
 
         // POST: DailyReports/Create
@@ -74,6 +79,7 @@ namespace MktSys.Controllers
             }
 
             var dailyReport = await _context.DailyReport.FindAsync(id);
+
             if (dailyReport == null)
             {
                 return NotFound();
