@@ -1,89 +1,67 @@
-﻿@*@model MktSys.Models.DailyReport*@
-@model IEnumerable<MktSys.Models.DailyReport>
+﻿@model List<MktSys.Models.DailyReport>
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "CreateMulti";
 }
 
-<h1>Create</h1>
+<h1>CreateMulti</h1>
 
 <h4>DailyReport</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-10">
+        <form asp-action="CreateMulti">
             <table class="table">
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.ReportDate)
+                            @Html.DisplayNameFor(model => model[0].ReportDate)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.StartTime)
+                            @Html.DisplayNameFor(model => model[0].StartTime)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.EndTime)
+                            @Html.DisplayNameFor(model => model[0].EndTime)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Comment)
+                            @Html.DisplayNameFor(model => model[0].Comment)
                         </th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-@*                    @for (var i = 0; i < 5; i++)*@
-                    @foreach (var item in Model)
+                    @for (var i = 0; i < 5; i++)
                     {
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <input asp-for="@item.ReportDate" class="form-control" />
-                                    <span asp-validation-for="@item.ReportDate" class="text-danger"></span>
+                                    @* @modelだとビルドエラーになる・・。@ModelだとOK *@
+                                    <input asp-for="@Model[i].ReportDate" class="form-control" /> 
+                                    <span asp-validation-for="@Model[i].ReportDate" class="text-danger"></span>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input asp-for="@item.StartTime" class="form-control" />
-                                    <span asp-validation-for="@item.StartTime" class="text-danger"></span>
+                                    <input asp-for="@Model[i].StartTime" class="form-control" />
+                                    <span asp-validation-for="@Model[i].StartTime" class="text-danger"></span>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input asp-for="@item.EndTime" class="form-control" />
-                                    <span asp-validation-for="@item.EndTime" class="text-danger"></span>
+                                    <input asp-for="@Model[i].EndTime" class="form-control" />
+                                    <span asp-validation-for="@Model[i].EndTime" class="text-danger"></span>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input asp-for="@item.Comment" class="form-control" />
-                                    <span asp-validation-for="@item.Comment" class="text-danger"></span>
+                                    <input asp-for="@Model[i].Comment" class="form-control" />
+                                    <span asp-validation-for="@Model[i].Comment" class="text-danger"></span>
                                 </div>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="ReportDate" class="control-label"></label>
-                    <input asp-for="ReportDate" class="form-control" />
-                    <span asp-validation-for="ReportDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="StartTime" class="control-label"></label>
-                    <input asp-for="StartTime" class="form-control" />
-                    <span asp-validation-for="StartTime" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="EndTime" class="control-label"></label>
-                    <input asp-for="EndTime" class="form-control" />
-                    <span asp-validation-for="EndTime" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Comment" class="control-label"></label>
-                    <input asp-for="Comment" class="form-control" />
-                    <span asp-validation-for="Comment" class="text-danger"></span>
-                </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

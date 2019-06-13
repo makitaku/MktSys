@@ -46,12 +46,7 @@ namespace MktSys.Controllers
         // GET: DailyReports/Create
         public IActionResult Create()
         {
-            //return View();
-
-            var model = new DailyReport();
-
-            return View(model);
-
+            return View();
         }
 
         // POST: DailyReports/Create
@@ -66,6 +61,36 @@ namespace MktSys.Controllers
                 _context.Add(dailyReport);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            return View(dailyReport);
+        }
+
+        // GET: DailyReports/CreateMulti
+        public IActionResult CreateMulti()
+        {
+            return View();
+        }
+
+        // POST: DailyReports/CreateMulti
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateMulti([Bind("Id,ReportDate,StartTime,EndTime,Comment")] List<DailyReport> dailyReport)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    foreach(var item in dailyReport)
+                    {
+                        _context.Add(item);
+                    }
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    View(dailyReport);
+                }
             }
             return View(dailyReport);
         }
